@@ -1,0 +1,9 @@
+#!/usr/bin/env gst
+
+FileStream fileIn: 'src/Robot.st'.
+robot := ToyRobot.Robot new init.
+robot report.
+
+Smalltalk arguments isEmpty
+  ifTrue: [ 'Hello world' printNl ];
+  ifFalse: [ ObjectMemory quit ] !

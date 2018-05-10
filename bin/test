@@ -1,0 +1,8 @@
+#!/usr/bin/env gst-sunit
+
+FileStream fileIn: 'tests/TestSuiteRunner.st'.
+
+"
+runner := TestSuiteRunner new.
+runner run
+"

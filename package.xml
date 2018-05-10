@@ -1,0 +1,13 @@
+<package>
+  <name>ToyRobot</name>
+  <namespace>ToyRobot</namespace>
+
+  <filein>src/CLI.st</filein>
+  <filein>src/Robot.st</filein>
+
+  <test>
+   <sunit>ExampleSetTest</sunit>
+   <filein>tests/ExampleSetTest.st</filein>
+   <filein>tests/TestSuiteRunner.st</filein>
+  </test>
+</package>
