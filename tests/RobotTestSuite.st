@@ -4,6 +4,7 @@ TestSuite subclass: RobotTestSuite [
     ]
 
     initialize [
+        FileStream fileIn: 'tests/RobotTest.st'.
         FileStream fileIn: 'tests/ExampleSetTest.st'.
 
         self name: 'Robot-Test'.
@@ -13,6 +14,9 @@ TestSuite subclass: RobotTestSuite [
         self addTest: (ExampleSetTest selector: #testIncludes).
         self addTest: (ExampleSetTest selector: #testOccurrences).
         self addTest: (ExampleSetTest selector: #testRemove).
+
+        self addTest: (RobotTest selector: #testReport).
+        self addTest: (RobotTest selector: #testReportAtDifferentPosition).
     ]
 ]
 "RobotTestSuite new initialize; run."

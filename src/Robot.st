@@ -6,6 +6,72 @@ Smalltalk.Object subclass: Robot [
     <comment: nil>
     <category: 'Class'>
 
+    Robot class >> new [
+        "Create a new robot set at coordinates 0, 0, facing NORTH"
+
+        <category: 'instance creation'>
+        ^self basicNew x: 0 y: 0 facing: 'NORTH'
+    ]
+
+    Robot class >> x: xInteger y: yInteger facing: facingString [
+        "Create a new robot with given coordinates"
+
+        <category: 'instance creation'>
+        ^self basicNew x: xInteger y: yInteger facing: facingString
+    ]
+
+    x [
+        "Answer the x coordinate"
+
+        <category: 'accessing'>
+        ^x
+    ]
+
+    y [
+        "Answer the y coordinate"
+
+        <category: 'accessing'>
+        ^y
+    ]
+
+    facing [
+        "Answer the facing coordinate"
+
+        <category: 'accessing'>
+        ^facing
+    ]
+
+    x: aNumber [
+        "Set the x coordinate to aNumber"
+
+        <category: 'accessing'>
+        x := aNumber
+    ]
+
+    y: aNumber [
+        "Set the y coordinate to aNumber"
+
+        <category: 'accessing'>
+        y := aNumber
+    ]
+
+    facing: aString [
+        "Set the facing coordinate to aString"
+
+        <category: 'accessing'>
+        facing := aString
+    ]
+
+    x: anXNumber y: aYNumber facing: aFacingString [
+        "Set the x, y and facing coordinates to anXNumber, aYNumber and"
+        "aFacingString, respectively"
+
+        <category: 'accessing'>
+        x := anXNumber.
+        y := aYNumber.
+        facing := aFacingString
+    ]
+
     init [
         <category: 'initialization'>
         x := 0.
@@ -14,7 +80,14 @@ Smalltalk.Object subclass: Robot [
     ]
 
     report [
-        (x asString, ',', y asString, ',', facing) printNl
+        "(x asString, ',', y asString, ',', facing) printNl"
+        x asString, ',', y asString, ',', facing displayOn: stdout
+        "(x asString, ',', y asString, ',', facing, (String with: Character cr)) printOn: stdout"
+    ]
+
+    report: aStream [
+        x asString, ',', y asString, ',', facing displayOn: aStream
+        "aStream nextPutAll: x asString, ',', y asString, ',', facing"
     ]
 ]
 
