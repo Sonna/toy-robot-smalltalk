@@ -17,7 +17,7 @@ all: default
 main: Main.st
 	$(CC) $(CFLAGS) $^
 
-test: tests/TestSuiteRunner.st
-	$(CC_TEST) $(CFLAGS) $^
+test: tests/RobotTestSuite.st
+	$(CC_TEST) $(CFLAGS) $^ $^
 
 # http://stackoverflow.com/questions/1484817/how-do-i-make-a-simple-makefile-gcc-unix
