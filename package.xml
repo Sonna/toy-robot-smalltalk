@@ -6,8 +6,12 @@
   <filein>src/Robot.st</filein>
 
   <test>
-   <sunit>ExampleSetTest</sunit>
-   <filein>tests/ExampleSetTest.st</filein>
-   <filein>tests/TestSuiteRunner.st</filein>
+    <sunit>RobotTestSuite</sunit>
+    <filein>tests/ExampleSetTest.st</filein>
+    <filein>tests/RobotTestSuite.st</filein>
   </test>
+
+  <file>README.md</file>
+  <file>tests/ExampleSetTest.st</file>
+  <file>tests/RobotTestSuite.st</file>
 </package>

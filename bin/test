@@ -1,8 +1,8 @@
+#!/usr/bin/env bash
+gst-sunit -f tests/RobotTestSuite.st
+gst-sunit tests/RobotTestSuite.st
+
 #!/usr/bin/env gst-sunit
-
-FileStream fileIn: 'tests/TestSuiteRunner.st'.
-
-"
-runner := TestSuiteRunner new.
-runner run
-"
+# "FileStream fileIn: 'tests/RobotTestSuite.st'."
+# "RobotTestSuite suite run"
+# "RobotTestSuite new initialize; run"

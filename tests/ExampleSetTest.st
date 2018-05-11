@@ -62,3 +62,11 @@ suite addTest: (exampleSetTest class selector: #testOccurrences).
 suite addTest: (exampleSetTest class selector: #testRemove).
 result := suite run.
 "
+
+"
+(TestSuite named: 'Money')
+    addTest: (ExampleSetTest selector: #testAdd);
+    addTest: (ExampleSetTest selector: #testRemove);
+    run
+
+"
