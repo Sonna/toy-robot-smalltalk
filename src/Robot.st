@@ -74,6 +74,25 @@ Smalltalk.Object subclass: Robot [
 
     report [
         x asString, ',', y asString, ',', facing displayOn: stdout
+        "x asString, ',', y asString, ',', facing, Character cr displayOn: stdout"
+    ]
+
+    left [
+        | dict |
+        dict := Dictionary new.
+        "dict := Dictionary newFrom: {
+                    'NORTH' -> [ 'WEST' ].
+                    'EAST' -> [ 'NORTH' ].
+                    'SOUTH' -> [ 'EAST' ].
+                    'WEST' -> [ 'SOUTH' ]
+                }."
+        dict
+            at: 'NORTH' put: [ 'WEST' ];
+            at: 'EAST' put: [ 'NORTH' ];
+            at: 'SOUTH' put: [ 'EAST' ];
+            at: 'WEST' put: [ 'SOUTH' ].
+        facing := (dict at: facing) value.
+        self
     ]
 ]
 

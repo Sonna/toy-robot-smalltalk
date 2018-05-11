@@ -17,6 +17,10 @@ TestSuite subclass: RobotTestSuite [
 
         self addTest: (RobotTest selector: #testReport).
         self addTest: (RobotTest selector: #testReportAtDifferentPosition).
+        self addTest: (RobotTest selector: #testLeft).
+        self addTest: (RobotTest selector: #testLeftFromWEST).
+        self addTest: (RobotTest selector: #testLeftFromSOUTH).
+        self addTest: (RobotTest selector: #testLeftFromEAST).
     ]
 ]
 "RobotTestSuite new initialize; run."

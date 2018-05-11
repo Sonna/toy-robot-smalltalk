@@ -38,4 +38,44 @@ TestCase subclass: RobotTest [
 
         self assert: (stdout contents = '1,2,EAST').
     ]
+
+    testLeft [
+        <category: 'Testing'>
+        subject := ToyRobot.Robot new.
+        subject left.
+
+        self assert: (subject x = 0).
+        self assert: (subject y = 0).
+        self assert: (subject facing = 'WEST').
+    ]
+
+    testLeftFromWEST [
+        <category: 'Testing'>
+        subject := ToyRobot.Robot new facing: 'WEST'.
+        subject left.
+
+        self assert: (subject x = 0).
+        self assert: (subject y = 0).
+        self assert: (subject facing = 'SOUTH').
+    ]
+
+    testLeftFromSOUTH [
+        <category: 'Testing'>
+        subject := ToyRobot.Robot new facing: 'SOUTH'.
+        subject left.
+
+        self assert: (subject x = 0).
+        self assert: (subject y = 0).
+        self assert: (subject facing = 'EAST').
+    ]
+
+    testLeftFromEAST [
+        <category: 'Testing'>
+        subject := ToyRobot.Robot new facing: 'EAST'.
+        subject left.
+
+        self assert: (subject x = 0).
+        self assert: (subject y = 0).
+        self assert: (subject facing = 'NORTH').
+    ]
 ]
