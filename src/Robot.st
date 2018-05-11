@@ -72,22 +72,8 @@ Smalltalk.Object subclass: Robot [
         facing := aFacingString
     ]
 
-    init [
-        <category: 'initialization'>
-        x := 0.
-        y := 0.
-        facing := 'NORTH'.
-    ]
-
     report [
-        "(x asString, ',', y asString, ',', facing) printNl"
         x asString, ',', y asString, ',', facing displayOn: stdout
-        "(x asString, ',', y asString, ',', facing, (String with: Character cr)) printOn: stdout"
-    ]
-
-    report: aStream [
-        x asString, ',', y asString, ',', facing displayOn: aStream
-        "aStream nextPutAll: x asString, ',', y asString, ',', facing"
     ]
 ]
 
