@@ -1,7 +1,7 @@
 FileStream fileIn: 'src/Robot.st'.
 
 TestCase subclass: RobotTest [
-    | file fileContents oldStdout subject sstream |
+    | oldStdout subject |
 
     <comment: nil>
     <category: 'SUnitTests'>
@@ -16,8 +16,6 @@ TestCase subclass: RobotTest [
     ]
 
     tearDown [
-        fileContents := nil.
-        file := nil.
         subject := nil.
 
         "reset `stdout` back to old `stdout`"
