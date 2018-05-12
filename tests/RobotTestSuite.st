@@ -39,6 +39,7 @@ TestSuite subclass: RobotTestSuite [
         self addTest: (RobotTest selector: #testMoveEASTFrom44).
         self addTest: (RobotTest selector: #testMoveEASTFrom40).
         self addTest: (RobotTest selector: #testMoveSOUTHFrom40).
+        self addTest: (RobotTest selector: #testPlace).
     ]
 ]
 "RobotTestSuite new initialize; run."

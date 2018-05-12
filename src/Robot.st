@@ -138,6 +138,17 @@ Smalltalk.Object subclass: Robot [
 
         self
     ]
+
+    place: coordinateString [
+        | coordinates |
+        coordinates := coordinateString allOccurrencesOfRegex: '[^,]+'.
+
+        x := (coordinates first) asInteger.
+        y := (coordinates at: 2) asInteger.
+        facing := coordinates at: 3.
+
+        ^self
+    ]
 ]
 
 ]

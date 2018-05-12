@@ -257,4 +257,14 @@ TestCase subclass: RobotTest [
         self assert: (subject y = 0).
         self assert: (subject facing = 'SOUTH').
     ]
+
+    testPlace [
+        <category: 'Testing'>
+        subject := ToyRobot.Robot new.
+        subject place: '2,3,WEST'.
+
+        self assert: (subject x = 2).
+        self assert: (subject y = 3).
+        self assert: (subject facing = 'WEST').
+    ]
 ]
