@@ -25,6 +25,20 @@ TestSuite subclass: RobotTestSuite [
         self addTest: (RobotTest selector: #testRightFromEAST).
         self addTest: (RobotTest selector: #testRightFromSOUTH).
         self addTest: (RobotTest selector: #testRightFromWEST).
+        self addTest: (RobotTest selector: #testMove).
+        self addTest: (RobotTest selector: #testMoveWESTFrom11).
+        self addTest: (RobotTest selector: #testMoveEASTFrom22).
+        self addTest: (RobotTest selector: #testMoveSOUTHFrom22).
+        self addTest: (RobotTest selector: #testMoveWESTFrom22).
+        self addTest: (RobotTest selector: #testMoveEASTFrom00).
+        self addTest: (RobotTest selector: #testMoveSOUTHFrom00).
+        self addTest: (RobotTest selector: #testMoveWESTFrom00).
+        self addTest: (RobotTest selector: #testMoveWESTFrom04).
+        self addTest: (RobotTest selector: #testMoveNORTHFrom04).
+        self addTest: (RobotTest selector: #testMoveNORTHFrom44).
+        self addTest: (RobotTest selector: #testMoveEASTFrom44).
+        self addTest: (RobotTest selector: #testMoveEASTFrom40).
+        self addTest: (RobotTest selector: #testMoveSOUTHFrom40).
     ]
 ]
 "RobotTestSuite new initialize; run."

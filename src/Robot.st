@@ -106,6 +106,38 @@ Smalltalk.Object subclass: Robot [
         facing := (dict at: facing) value.
         self
     ]
+
+    move [
+        | moveMap north east south west |
+        north := Dictionary new.
+        north at: 'x' put: [ 0 ]; at: 'y' put: [ 1 ].
+        east := Dictionary new.
+        east at: 'x' put: [ 1 ]; at: 'y' put: [ 0 ].
+        south := Dictionary new.
+        south at: 'x' put: [ 0 ]; at: 'y' put: [ -1 ].
+        west := Dictionary new.
+        west at: 'x' put: [ -1 ]; at: 'y' put: [ 0 ].
+
+        moveMap := Dictionary new.
+        moveMap
+            at: 'NORTH' put: [ north ];
+            at: 'EAST' put: [ east ];
+            at: 'SOUTH' put: [ south ];
+            at: 'WEST' put: [ west ].
+
+        x := x + (((moveMap at: facing) value at: 'x') value).
+        y := y + (((moveMap at: facing) value at: 'y') value).
+
+        (x < 0 or: [ x > 4 ]) ifTrue: [
+            x := x - (((moveMap at: facing) value at: 'x') value).
+        ].
+
+        (y < 0 or: [ y > 4 ]) ifTrue: [
+            y := y - (((moveMap at: facing) value at: 'y') value).
+        ].
+
+        self
+    ]
 ]
 
 ]
