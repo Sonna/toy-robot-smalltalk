@@ -88,9 +88,21 @@ Smalltalk.Object subclass: Robot [
                 }."
         dict
             at: 'NORTH' put: [ 'WEST' ];
-            at: 'EAST' put: [ 'NORTH' ];
+            at: 'WEST' put: [ 'SOUTH' ];
             at: 'SOUTH' put: [ 'EAST' ];
-            at: 'WEST' put: [ 'SOUTH' ].
+            at: 'EAST' put: [ 'NORTH' ].
+        facing := (dict at: facing) value.
+        self
+    ]
+
+    right [
+        | dict |
+        dict := Dictionary new.
+        dict
+            at: 'NORTH' put: [ 'EAST' ];
+            at: 'EAST' put: [ 'SOUTH' ];
+            at: 'SOUTH' put: [ 'WEST' ];
+            at: 'WEST' put: [ 'NORTH' ].
         facing := (dict at: facing) value.
         self
     ]

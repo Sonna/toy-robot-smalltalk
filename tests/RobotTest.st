@@ -78,4 +78,44 @@ TestCase subclass: RobotTest [
         self assert: (subject y = 0).
         self assert: (subject facing = 'NORTH').
     ]
+
+    testRight [
+        <category: 'Testing'>
+        subject := ToyRobot.Robot new.
+        subject right.
+
+        self assert: (subject x = 0).
+        self assert: (subject y = 0).
+        self assert: (subject facing = 'EAST').
+    ]
+
+    testRightFromEAST [
+        <category: 'Testing'>
+        subject := ToyRobot.Robot new facing: 'EAST'.
+        subject right.
+
+        self assert: (subject x = 0).
+        self assert: (subject y = 0).
+        self assert: (subject facing = 'SOUTH').
+    ]
+
+    testRightFromSOUTH [
+        <category: 'Testing'>
+        subject := ToyRobot.Robot new facing: 'SOUTH'.
+        subject right.
+
+        self assert: (subject x = 0).
+        self assert: (subject y = 0).
+        self assert: (subject facing = 'WEST').
+    ]
+
+    testRightFromWEST [
+        <category: 'Testing'>
+        subject := ToyRobot.Robot new facing: 'WEST'.
+        subject right.
+
+        self assert: (subject x = 0).
+        self assert: (subject y = 0).
+        self assert: (subject facing = 'NORTH').
+    ]
 ]
