@@ -73,8 +73,9 @@ Smalltalk.Object subclass: Robot [
     ]
 
     report [
-        x asString, ',', y asString, ',', facing displayOn: stdout
+        x asString, ',', y asString, ',', facing displayOn: stdout.
         "x asString, ',', y asString, ',', facing, Character cr displayOn: stdout"
+        ^self
     ]
 
     left [
@@ -148,6 +149,29 @@ Smalltalk.Object subclass: Robot [
         facing := coordinates at: 3.
 
         ^self
+    ]
+
+    exec: command args: rawArgs [
+        | commands |
+        commands := Dictionary new.
+        commands
+            at: 'PLACE' put: [ self place: rawArgs ];
+            at: 'MOVE' put: [ self move ];
+            at: 'LEFT' put: [ self left ];
+            at: 'RIGHT' put: [ self right ];
+            at: 'REPORT' put: [ self report ].
+"
+            at: 'PLACE' put: #place:;
+            at: 'MOVE' put: #move;
+            at: 'LEFT' put: #left;
+            at: 'RIGHT' put: #right;
+            at: 'REPORT' put: #report.
+"
+        "commands at: 'REPORT' put: [ report ]."
+        "1 perform: #+ with: 2."
+
+        "self perform: (commands at: command) with: rawArgs."
+        (commands at: command) value.
     ]
 ]
 

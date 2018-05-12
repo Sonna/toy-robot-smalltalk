@@ -267,4 +267,52 @@ TestCase subclass: RobotTest [
         self assert: (subject y = 3).
         self assert: (subject facing = 'WEST').
     ]
+
+    testExecPlace [
+        <category: 'Testing'>
+        subject := ToyRobot.Robot new.
+        subject exec: 'PLACE' args: '2,3,WEST'.
+
+        self assert: (subject x = 2).
+        self assert: (subject y = 3).
+        self assert: (subject facing = 'WEST').
+    ]
+
+    testExecMove [
+        <category: 'Testing'>
+        subject := ToyRobot.Robot new.
+        subject exec: 'MOVE' args: ''.
+
+        self assert: (subject x = 0).
+        self assert: (subject y = 1).
+        self assert: (subject facing = 'NORTH').
+    ]
+
+    testExecLeft [
+        <category: 'Testing'>
+        subject := ToyRobot.Robot new.
+        subject exec: 'LEFT' args: ''.
+
+        self assert: (subject x = 0).
+        self assert: (subject y = 0).
+        self assert: (subject facing = 'WEST').
+    ]
+
+    testExecRight [
+        <category: 'Testing'>
+        subject := ToyRobot.Robot new.
+        subject exec: 'RIGHT' args: ''.
+
+        self assert: (subject x = 0).
+        self assert: (subject y = 0).
+        self assert: (subject facing = 'EAST').
+    ]
+
+    testExecReport [
+        <category: 'Testing'>
+        subject := ToyRobot.Robot new.
+        subject exec: 'REPORT' args: ''.
+
+        self assert: (stdout contents = '0,0,NORTH').
+    ]
 ]
