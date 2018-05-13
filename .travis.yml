@@ -1,0 +1,12 @@
+sudo: required
+
+language: smalltalk
+
+services:
+- docker
+
+before_install:
+- docker pull nacyot/smalltalk-gnu:apt
+
+script:
+- docker run --rm -v $(pwd):/app -w /app nacyot/smalltalk-gnu:apt bash -c "bin/test"
