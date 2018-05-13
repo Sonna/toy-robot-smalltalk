@@ -1,0 +1,9 @@
+image: nacyot/smalltalk-gnu:apt
+
+stages:
+  - test
+
+test:
+  stage: test
+  script:
+  - bin/test
