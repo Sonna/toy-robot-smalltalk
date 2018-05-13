@@ -20,6 +20,48 @@ Smalltalk.Object subclass: Robot [
         ^self basicNew x: xInteger y: yInteger facing: facingString
     ]
 
+    Robot class >> MOVE [
+        <category: 'constant'>
+        | moveMap north east south west |
+        north := Dictionary new.
+        east := Dictionary new.
+        south := Dictionary new.
+        west := Dictionary new.
+        north at: 'x' put: 0; at: 'y' put: 1.
+        east at: 'x' put: 1; at: 'y' put: 0.
+        south at: 'x' put: 0; at: 'y' put: -1.
+        west at: 'x' put: -1; at: 'y' put: 0.
+
+        moveMap := Dictionary new.
+        moveMap
+            at: 'NORTH' put: north;
+            at: 'EAST' put: east;
+            at: 'SOUTH' put: south;
+            at: 'WEST' put: west.
+        ^moveMap.
+    ]
+
+    Robot class >> TURN [
+        <category: 'constant'>
+        | turnMap north east south west |
+        north := Dictionary new.
+        east := Dictionary new.
+        south := Dictionary new.
+        west := Dictionary new.
+        north at: 'LEFT' put: 'WEST'; at: 'RIGHT' put: 'EAST'.
+        east at: 'LEFT' put: 'NORTH'; at: 'RIGHT' put: 'SOUTH'.
+        south at: 'LEFT' put: 'EAST'; at: 'RIGHT' put: 'WEST'.
+        west at: 'LEFT' put: 'SOUTH'; at: 'RIGHT' put: 'NORTH'.
+
+        turnMap := Dictionary new.
+        turnMap
+            at: 'NORTH' put: north;
+            at: 'EAST' put: east;
+            at: 'SOUTH' put: south;
+            at: 'WEST' put: west.
+        ^turnMap.
+    ]
+
     x [
         "Answer the x coordinate"
 
@@ -82,51 +124,21 @@ Smalltalk.Object subclass: Robot [
 
     left [
         | dict |
-        dict := Dictionary new.
-        "dict := Dictionary newFrom: {
-                    'NORTH' -> [ 'WEST' ].
-                    'EAST' -> [ 'NORTH' ].
-                    'SOUTH' -> [ 'EAST' ].
-                    'WEST' -> [ 'SOUTH' ]
-                }."
-        dict
-            at: 'NORTH' put: 'WEST';
-            at: 'WEST' put: 'SOUTH';
-            at: 'SOUTH' put: 'EAST';
-            at: 'EAST' put: 'NORTH'.
-        facing := dict at: facing.
+        dict := Robot TURN.
+        facing := (dict at: facing) at: 'LEFT'.
         self
     ]
 
     right [
         | dict |
-        dict := Dictionary new.
-        dict
-            at: 'NORTH' put: 'EAST';
-            at: 'EAST' put: 'SOUTH';
-            at: 'SOUTH' put: 'WEST';
-            at: 'WEST' put: 'NORTH'.
-        facing := dict at: facing.
+        dict := Robot TURN.
+        facing := (dict at: facing) at: 'RIGHT'.
         self
     ]
 
     move [
-        | moveMap north east south west |
-        north := Dictionary new.
-        north at: 'x' put: 0; at: 'y' put: 1.
-        east := Dictionary new.
-        east at: 'x' put: 1; at: 'y' put: 0.
-        south := Dictionary new.
-        south at: 'x' put: 0; at: 'y' put: -1.
-        west := Dictionary new.
-        west at: 'x' put: -1; at: 'y' put: 0.
-
-        moveMap := Dictionary new.
-        moveMap
-            at: 'NORTH' put: north;
-            at: 'EAST' put: east;
-            at: 'SOUTH' put: south;
-            at: 'WEST' put: west.
+        | moveMap |
+        moveMap := Robot MOVE.
 
         x := x + ((moveMap at: facing) at: 'x').
         y := y + ((moveMap at: facing) at: 'y').
