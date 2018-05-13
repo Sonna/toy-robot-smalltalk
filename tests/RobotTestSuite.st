@@ -4,6 +4,7 @@ TestSuite subclass: RobotTestSuite [
     ]
 
     initialize [
+        FileStream fileIn: 'tests/CLITest.st'.
         FileStream fileIn: 'tests/RobotTest.st'.
         FileStream fileIn: 'tests/ExampleSetTest.st'.
 
@@ -14,6 +15,14 @@ TestSuite subclass: RobotTestSuite [
         self addTest: (ExampleSetTest selector: #testIncludes).
         self addTest: (ExampleSetTest selector: #testOccurrences).
         self addTest: (ExampleSetTest selector: #testRemove).
+
+        self addTest: (CLITest selector: #testRunExampleA).
+        self addTest: (CLITest selector: #testRunExampleB).
+        self addTest: (CLITest selector: #testRunExampleC).
+        self addTest: (CLITest selector: #testRunEXIT).
+        self addTest: (CLITest selector: #testRunReport).
+        self addTest: (CLITest selector: #testRunMoveReport).
+        self addTest: (CLITest selector: #testRunReportMoveReport).
 
         self addTest: (RobotTest selector: #testReport).
         self addTest: (RobotTest selector: #testReportAtDifferentPosition).

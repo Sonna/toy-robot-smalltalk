@@ -11,7 +11,7 @@ Object subclass: CLI [
             ifTrue: [ instream := stdin. ];
             ifFalse: [
                 | filename |
-                filename := Smalltalk getArgv: 1.
+                filename := argsV at: 1.
                 instream := FileStream open: filename mode: FileStream read.
             ].
         CLI processInput: instream robot: robot.
