@@ -29,6 +29,7 @@ TestCase subclass: RobotTest [
         subject report.
 
         self assert: (stdout contents = '0,0,NORTH').
+        "self assert: (stdout contents = ('0,0,NORTH', (String with: Character cr)))."
     ]
 
     testReportAtDifferentPosition [
@@ -37,6 +38,7 @@ TestCase subclass: RobotTest [
         subject report.
 
         self assert: (stdout contents = '1,2,EAST').
+        "self assert: (stdout contents = ('1,2,EAST', (String with: Character cr)))."
     ]
 
     testLeft [
@@ -271,7 +273,7 @@ TestCase subclass: RobotTest [
     testExecPlace [
         <category: 'Testing'>
         subject := ToyRobot.Robot new.
-        subject exec: 'PLACE' args: '2,3,WEST'.
+        subject exec: 'PLACE' with: '2,3,WEST'.
 
         self assert: (subject x = 2).
         self assert: (subject y = 3).
@@ -281,7 +283,7 @@ TestCase subclass: RobotTest [
     testExecMove [
         <category: 'Testing'>
         subject := ToyRobot.Robot new.
-        subject exec: 'MOVE' args: ''.
+        subject exec: 'MOVE' with: ''.
 
         self assert: (subject x = 0).
         self assert: (subject y = 1).
@@ -291,7 +293,7 @@ TestCase subclass: RobotTest [
     testExecLeft [
         <category: 'Testing'>
         subject := ToyRobot.Robot new.
-        subject exec: 'LEFT' args: ''.
+        subject exec: 'LEFT' with: ''.
 
         self assert: (subject x = 0).
         self assert: (subject y = 0).
@@ -301,7 +303,7 @@ TestCase subclass: RobotTest [
     testExecRight [
         <category: 'Testing'>
         subject := ToyRobot.Robot new.
-        subject exec: 'RIGHT' args: ''.
+        subject exec: 'RIGHT' with: ''.
 
         self assert: (subject x = 0).
         self assert: (subject y = 0).
@@ -311,8 +313,9 @@ TestCase subclass: RobotTest [
     testExecReport [
         <category: 'Testing'>
         subject := ToyRobot.Robot new.
-        subject exec: 'REPORT' args: ''.
+        subject exec: 'REPORT' with: ''.
 
         self assert: (stdout contents = '0,0,NORTH').
+        "self assert: (stdout contents = ('0,0,NORTH', (String with: Character cr)))."
     ]
 ]

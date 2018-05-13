@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-gst -f Main.st
+gst -f Main.st $1
 
 #!/usr/bin/env gst
 # "FileStream fileIn: 'Main.st'."

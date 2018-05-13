@@ -74,7 +74,9 @@ Smalltalk.Object subclass: Robot [
 
     report [
         x asString, ',', y asString, ',', facing displayOn: stdout.
+        "x asString, ',', y asString, ',', facing, (String with: Character cr) displayOn: stdout."
         "x asString, ',', y asString, ',', facing, Character cr displayOn: stdout"
+        Transcript cr.
         ^self
     ]
 
@@ -151,7 +153,7 @@ Smalltalk.Object subclass: Robot [
         ^self
     ]
 
-    exec: command args: rawArgs [
+    exec: command with: rawArgs [
         | commands |
         commands := Dictionary new.
         commands
@@ -161,7 +163,9 @@ Smalltalk.Object subclass: Robot [
             at: 'RIGHT' put: [ self right ];
             at: 'REPORT' put: [ self report ].
 
-        (commands at: command) value.
+        (commands keys includes: command)
+            ifTrue: [ (commands at: command) value. ];
+            ifFalse: [ self ].
     ]
 ]
 
